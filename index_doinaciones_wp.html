@@ -1,0 +1,389 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<style>
+	* {
+  margin: 0;
+  padding: 0;
+}
+button, a {
+  cursor: pointer;
+}
+button:hover, a:hover {
+  opacity: 0.5;
+}
+
+section {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section p {
+  font-size: 18px;
+}
+section .content {
+  margin: 25px;
+  padding: 25px;
+  width: 500px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+section .content #donation-options {
+  display: flex;
+  justify-content: center;
+}
+section .content #donation-options button {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Asap", sans-serif;
+  width: 150px;
+  height: 45px;
+  background-color: #05749E;
+  color: FFF;
+  border: 1px solid #05749E;
+}
+section .content #donation-options button:hover {
+  background-color: #05749E !important;
+  color: #FFFFFF !important;
+}
+section .content #donation-options .button-inactive {
+  background-color: #FFFFFF;
+  border-color: #05749E;
+  color: #05749E;
+}
+section .content #information-online {
+  display: flex;
+  font-size: 14px;
+  margin: 15px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+section .content #information-online p, section .content #information-online #check-deducible {
+  margin: 5px 0;
+}
+section .content #information-online h4 {
+  color: #009CDE;
+  text-align: center;
+  font-size: 16px;
+}
+section .content #information-online #logo-paypal {
+  margin: 15px 0;
+  display: flex;
+  font-size: 25px;
+}
+section .content #information-online #logo-paypal em {
+  margin-right: 5px;
+  color: #003087;
+}
+section .content #information-online #logo-paypal .pay {
+  color: #003087;
+}
+section .content #information-online #logo-paypal .pal {
+  color: #009CDE;
+}
+section .content #information-online .additional {
+  margin: 5px 0;
+}
+section .content #information-online .additional label {
+  display: flex;
+  height: 30px;
+  align-items: center;
+}
+section .content #information-online .additional label input {
+  margin-left: 5px;
+}
+section .content #information-online .information-donation .amount {
+  display: flex;
+}
+section .content #information-online .information-donation .amount button, section .content #information-online .information-donation .amount input {
+  font-size: 12px;
+  width: 125px;
+  height: 35px;
+}
+section .content #information-online .information-donation .amount .middle {
+  margin: 0 5px;
+}
+section .content #information-online .information-donation .amount .delete-left {
+  margin-left: 0;
+}
+section .content #information-online .information-donation .amount input {
+  text-align: center;
+  max-width: 125px;
+}
+section .content #information-online .information-donation select {
+  width: 100%;
+  margin: 10px 0;
+}
+section .content #information-online .note {
+  font-size: 14px;
+}
+section .content #information-online #information-donor {
+  display: none;
+  flex-direction: column;
+  font-size: 12px;
+  width: 100%;
+}
+section .content #information-online #information-donor .row {
+  display: flex;
+  margin: 10px 0;
+}
+section .content #information-online #information-donor .row label {
+  width: 250px;
+  color: #003087;
+  font-weight: bold;
+}
+section .content #information-online #information-donor .row input {
+  color: #009CDE;
+}
+section .content #information-online #donation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+	width: 200px;
+  background-color: #05749E;
+  border: 0;
+  height: 50px;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+section .content #information-offline {
+  display: none;
+  flex-direction: column;
+}
+section .content #information-offline h4, section .content #information-offline .row, section .content #information-offline p {
+  margin-bottom: 15px;
+}
+section .content #information-offline h4 {
+  margin-top: 15px;
+  text-align: center;
+}
+section .content #information-offline .row {
+  width: 100%;
+  display: flex;
+}
+section .content #information-offline .row p {
+  font-size: 14px;
+  width: 48%;
+}
+section .content #information-offline .row .field {
+  text-align: end;
+  color: #05749E;
+  font-weight: bold;
+  padding-right: 1%;
+}
+section .content #information-offline .row .data {
+  color: #E4022E;
+  padding-left: 1%;
+}
+section .content #information-offline .final {
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+</style>	
+
+<section class="Donaciones">
+	<p>
+		Nuestro apostolado está en gran necesidad de soporte financiero. 
+		Sus donaciones nos ayudan a poder soportar nuestros gastos, como: 
+		comida, vestido, seguro médico, mantenimiento de los centros de apostolado, 
+		transporte, seminarios, libros de texto, producción y distribución de materiales 
+		para el apostolado, organización de retiros y conferencias, etc.
+		Nosotros creemos que su apoyo es un canal a través del cual nuestro Señor 
+		desea soportar el trabajo de Miles Christi. 
+	</p>
+	
+	<div class="content">
+		<!-- Opciones -->
+		<div id="donation-options">
+			<button id="donation-online" class="button-active" onclick="online()">
+				Dona en línea
+			</button>
+			<button id="donation-offline" class="button-inactive" onclick="offline()">
+				Dona offline
+			</button>
+		</div>
+	
+		<!-- Pago en linea -->
+		<div id="information-online">
+			<h4>Las donaciones en linean se hacen mediante paypal</h4>
+			<div id="logo-paypal">
+				<em class="fab fa-paypal"></em>
+				<h5>
+					<span class="pay">Pay</span><span class="pal">Pal</span>
+				</h5>
+			</div>
+			<!--
+			<div class="information-donation">
+				<div class="amount">
+					<button>$100.00 MXN</button>
+					<button class="middle">$500.00 MXN</button>
+					<button class="middle delete-left">$1,000 MXN</button>
+					<input type="num" value="200">
+				</div>
+				<select name="type">
+					<option value="one">Donación única</option>
+					<option value="month">Donación recurrente</option>
+				</select>
+			</div>
+			-->
+			
+			<!-- Para mostrar formulario del deducible-->
+			<div class="additional">
+				<p class="note"> 
+					Si desea hacer su donación deducible de impuestos por favor 
+					presione <b>deducible</b> y complete la siguiente forma.
+				</p>
+				<label> Deducible
+					<input 
+						type="checkbox" 
+						id="deducible" 
+						name="deducible" 
+						value="deducible" 
+						onclick="viewDeducible()"
+					>
+				</label>
+			</div>
+			
+			<!-- Información de donante, para firebase-->
+			<div id="information-donor">
+				<div class="row">
+					<label for="name">Nombre completo o Razón social: </label>
+					<input type="text" id="sujeto" name="name" />
+				</div>
+				<div class="row">
+					<label for="rfc">RFC:</label>
+					<input type="text" id="rfc" name="rfc" />
+				</div>
+				<div class="row">
+					<label for="email">
+						Correo electrónico:
+					</label>
+					<input type="text" id="email" name="email" />
+				</div>
+			</div>
+			<form action="https://www.paypal.com/donate" method="post" target="_blank">
+				<input type="hidden" name="hosted_button_id" value="YWCASDD28T5TS" />
+				<button onclick = "addDonador();" id = "donation" type="submit">Donar ahora</button>
+			</form>
+		</div>
+			
+	
+		<!-- Pago offline -->
+		<div id="information-offline">
+			<h4>Para depositos y transferencias bancarias</h4>
+			<div class="row">
+				<p class="field">Banco:</p>
+				<p class="data">Santander</p>
+			</div>
+			<div class="row">
+				<p class="field">Titular:</p>
+				<p class="data">Fundación PAMPA, AC.</p>
+			</div>
+			<div class="row">
+				<p class="field">Número de cuenta: </p>
+				<p class="data">65-50723619-3</p>
+			</div>
+			<div class="row">
+				<p class="field">CLABE:</p>
+				<p class="data">014320655072361937</p>
+			</div>
+			<!-- <button id="print">Imprimir</button> -->
+			<p class="final">Si Ud. realiza alguna de esas operaciones, por favor, avísenos. 
+				<br> ¡Muchas gracias!
+			</p>	
+		</div>
+	</div>
+	
+	<h5>¡Miles christi agradece tu apoyo!</h5>
+</section>
+
+<!-- Firebase -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+<script>
+ // Your web app's Firebase configuration
+ const firebaseConfig = {
+    apiKey: "AIzaSyDRn6a-3S6jedgwMw9w3OS2lvqUhcAnFGU",
+    authDomain: "donaciones-c7b9f.firebaseapp.com",
+    projectId: "donaciones-c7b9f",
+    storageBucket: "donaciones-c7b9f.appspot.com",
+    messagingSenderId: "580134469414",
+    appId: "1:580134469414:web:5b887c0a0bc4a129e18be7"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+	const db = firebase.firestore();
+</script>
+
+
+<!-- Script -->
+<script>
+	const idOnline = document.getElementById('donation-online');
+	const idOnlineInformation = document.getElementById('information-online');
+	const deducible = document.getElementById('deducible');
+	const informationDonor = document.getElementById('information-donor');
+
+	const idOffline = document.getElementById('donation-offline');
+	const idOfflineInformation = document.getElementById('information-offline');
+
+	function online(){
+		idOnline.style.background = "#05749E"
+		idOnline.style.color = "#FFFFFF";
+		idOnlineInformation.style.display = "flex";
+
+		idOffline.style.background ="#FFFFFF";
+		idOffline.style.color = "#05749E";
+		idOfflineInformation.style.display = "none";
+	}
+
+	function offline(){
+		
+		idOffline.style.background = "#05749E"
+		idOffline.style.color = "#FFFFFF";
+		idOfflineInformation.style.display = "block";
+		
+		idOnline.style.background ="#FFFFFF";
+		idOnline.style.color = "#05749E";
+		idOnlineInformation.style.display = "none";
+	}
+
+	function viewDeducible(){
+		if(deducible.checked){
+			informationDonor.style.display = "block";
+		}else{
+			informationDonor.style.display = "none";
+		}
+	}
+	function addDonador(){
+		if(deducible.checked){
+			var sujeto = document.getElementById("sujeto");
+			var rfc = document.getElementById("rfc");
+			var email = document.getElementById("email");
+			
+			db.collection("donadores").add({
+				sujeto:	sujeto.value,
+				rfc:		rfc.value,
+				email:	email.value
+			})
+			.then(function (docRef){
+				console.log("Document writtem with ID: ",docRef.id);
+			})
+			.catch(function (error){
+				console.error("Error adding document: ", error);
+			});
+			sujeto.value 	= "";
+			rfc.value			= "";
+			email.value		= "";
+		}
+		alert("Se abrira Paypal en una nueva pestaña para completar la donación");
+	}
+</script>
