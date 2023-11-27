@@ -7,72 +7,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donaciones</title>
   <link rel="icon" type="image/x-icon" href="./fpac.jpg">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-  <section class="Donaciones">
-    <div class="content">
-      <div class="container">
-        <img src="./fpac.jpg" alt="Logo de Fundacion Pampa A.C." class="rounded mx-auto d-block" width="300px">
-        <p class="my-5">
+  <section class="content">
+    <div class="donation-header">
+      <img src="./fpac.jpg" alt="Logo de Fundacion Pampa A.C." class="rounded mx-auto d-block" width="300px">
+    </div>
+
+    <div class="donation-body">
+      <div class="donation-content">
+        <h1 class="container">Ayúdanos con nuestra misión</h1>
+        <p class="container">
           Nuestro trabajo con el desarrollo de los jóvenes esta en gran necesidad de soporte financiero. Sus
           donaciones nos ayudan a poder soportar nuestros gastos: mantenimiento de nuestro centro de formación,
           transporte, comida, producción y distribución de materiales para el apostolado, organización de eventos
           y conferencias, etc. ¡Los jóvenes nos necesitan!
         </p>
       </div>
+  
       <!-- Opciones -->
-      <div id="donation-options">
+      <div class="container donation-options ">
         <button id="donation-online" class="button-active" onclick="online()">
-          Dona en línea
+          Donación en línea
         </button>
         <button id="donation-offline" class="button-inactive" onclick="offline()">
-          Dona offline
+          Depósito o transfer
         </button>
       </div>
-
+  
       <!-- Pago en linea -->
       <div id="information-online">
-        <h4>Las donaciones en linean se hacen mediante paypal</h4>
-        <div id="logo-paypal">
-          <em class="fab fa-paypal"></em>
-          <h5>
-            <span class="pay">Pay</span><span class="pal">Pal</span>
-          </h5>
-        </div>
-        <!--
-				<div class="information-donation">
-					<div class="amount">
-						<button>$100.00 MXN</button>
-						<button class="middle">$500.00 MXN</button>
-						<button class="middle delete-left">$1,000 MXN</button>
-						<input type="num" value="200">
-					</div>
-					<select name="type">
-						<option value="one">Donación única</option>
-						<option value="month">Donación recurrente</option>
-					</select>
-				</div>
-				-->
-
+        <p class="container p-bold">Dona en línea</p>
+        <!-- <p class="p-note">Las donaciones en linean se hacen mediante PayPal <em class="fab fa-paypal"></em></p> -->
+  
         <!-- Para mostrar formulario del deducible-->
-        <div class="additional">
-          <p class="note">
+        <div class="container additional">
+          <p class="">
             Si desea hacer su donación deducible de impuestos por favor
             presione <b>deducible</b> y complete la siguiente forma.
           </p>
-          <label> Deducible
-            <input type="checkbox" id="deducible" name="deducible" value="deducible" onclick="viewDeducible()">
-          </label>
+          <div style="margin: 16px 0;">
+            <label class="deducir"> 
+              <input type="checkbox" id="deducible" name="deducible" value="deducible" onclick="viewDeducible()">
+              Deducir gasto
+            </label>
+          </div>
         </div>
-
+  
         <!-- Información de donante, para firebase-->
-        <div id="information-donor">
+        <div id="information-donor" class="container">
           <div class="row">
             <label for="name">Nombre completo o Razón social: </label>
             <input type="text" id="sujeto" name="name" />
@@ -88,39 +81,47 @@
             <input type="text" id="email" name="email" />
           </div>
         </div>
-        <form action="https://www.paypal.com/donate" method="post" target="_blank">
+        <form action="https://www.paypal.com/donate" method="post" target="_blank" class="container">
           <input type="hidden" name="hosted_button_id" value="YWCASDD28T5TS" />
           <button onclick="addDonador();" id="donation" type="submit">Donar ahora</button>
         </form>
       </div>
-
-
+  
+  
       <!-- Pago offline -->
-      <div id="information-offline">
-        <h4>Para depositos y transferencias bancarias</h4>
-        <div class="row">
-          <p class="field">Banco:</p>
-          <p class="data">Santander</p>
-        </div>
-        <div class="row">
-          <p class="field">Titular:</p>
-          <p class="data">Fundación PAMPA, AC.</p>
-        </div>
-        <div class="row">
-          <p class="field">Número de cuenta: </p>
-          <p class="data">65-50723619-3</p>
-        </div>
-        <div class="row">
-          <p class="field">CLABE:</p>
-          <p class="data">014320655072361937</p>
+      <div id="information-offline" class="">
+        <div class="information-offline-content">
+          <p class="p-bold container">Depósitos y Transferencias bancarias</p>
+          <div class="row">
+            <b class="field">Banco:</b>
+            <p class="data">Santander</p>
+          </div>
+          <br>
+          <div class="row">
+            <b class="field">Titular:</b>
+            <p class="data">Fundación PAMPA, AC.</p>
+          </div>
+          <br>
+          <div class="row">
+            <b class="field">Número de cuenta: </b>
+            <p class="data">65-50723619-3</p>
+          </div>
+          <br>
+          <div class="row">
+            <b class="field">CLABE:</b>
+            <p class="data">014320655072361937</p>
+          </div>
+          <br>
         </div>
         <!-- <button id="print">Imprimir</button> -->
-        <p class="final">Si Ud. realiza alguna de esas operaciones, por favor, avísenos.
+        <p class="container">Si usted deposita o transfiere a nuestra cuenta, por favor, avísenos.
           <br> ¡Muchas gracias!
         </p>
       </div>
-      <p class="final">¡Agradecemos tu apoyo!</p>
+      
+      <p class="container" style="text-align: center;">¡Agradecemos tu apoyo!</p>
     </div>
+
 
   </section>
 

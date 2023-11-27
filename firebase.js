@@ -12,7 +12,6 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 
-
 const idOnline = document.getElementById('donation-online');
 const idOnlineInformation = document.getElementById('information-online');
 const deducible = document.getElementById('deducible');
@@ -22,24 +21,23 @@ const idOffline = document.getElementById('donation-offline');
 const idOfflineInformation = document.getElementById('information-offline');
 
 function online() {
-    idOnline.style.background = "#05749E"
-    idOnline.style.color = "#FFFFFF";
-    idOnlineInformation.style.display = "flex";
-
-    idOffline.style.background = "#FFFFFF";
-    idOffline.style.color = "#05749E";
-    idOfflineInformation.style.display = "none";
+    idOnline.classList.remove("button-inactive");
+    idOnline.classList.add("button-active");
+    idOnlineInformation.style.display = "initial"
+    
+    idOffline.classList.remove("button-active");
+    idOffline.classList.add("button-inactive");
+    idOfflineInformation.style.display = "none"
 }
 
 function offline() {
-
-    idOffline.style.background = "#05749E"
-    idOffline.style.color = "#FFFFFF";
-    idOfflineInformation.style.display = "block";
-
-    idOnline.style.background = "#FFFFFF";
-    idOnline.style.color = "#05749E";
-    idOnlineInformation.style.display = "none";
+    idOnline.classList.add("button-inactive");
+    idOnline.classList.remove("button-active");
+    idOnlineInformation.style.display = "none"
+    
+    idOffline.classList.add("button-active");
+    idOffline.classList.remove("button-inactive");
+    idOfflineInformation.style.display = "block"
 }
 
 function viewDeducible() {
@@ -49,6 +47,7 @@ function viewDeducible() {
         informationDonor.style.display = "none";
     }
 }
+
 function addDonador() {
     if (deducible.checked) {
         var sujeto = document.getElementById("sujeto");
